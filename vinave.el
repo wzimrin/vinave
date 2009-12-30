@@ -21,7 +21,8 @@
 (defun vinave-replace-char (c)
   (interactive "*cChar:\n")
   (delete-char 1 t)
-  (insert c))
+  (insert c)
+  (backward-char))
 
 (defmacro vinave-kill-fn (yes no)
   (let ((i (make-symbol "i")))
@@ -83,7 +84,7 @@
                      ("K" (kbd "C-M-u"))
                      ("L" (kbd "C-M-f"))
                      
-                     ("w" "\M-f")
+                     ("e" "\M-f")
                      ("b" "\M-b")
                      ("," "\C-a")
                      ("." "\C-e")
@@ -107,13 +108,13 @@
                             (setq this-command 'kill-region)))
                      ("s" "xi")
                      ("r" 'vinave-replace-char)
-                     ("e" 'newline-and-indent)
-                     ("E" 'join-line)
+                     ("w" 'newline-and-indent)
+                     ("W" 'join-line)
                      ("t" 'transpose-chars)
                      ("T" 'transpose-sexps)
                      
                      ("d" (make-sparse-keymap))
-                     ("dw" (vinave-kill-fn (kbd "C-M-w M-d")
+                     ("de" (vinave-kill-fn (kbd "C-M-w M-d")
                                            (kbd "M-d")))
                      ("db" (vinave-kill-fn (kbd "C-M-w M-DEL")
                                            (kbd "M-DEL")))
@@ -131,7 +132,7 @@
                      ("D" 'kill-region)
                      
                      ("c" (make-sparse-keymap))
-                     ("cw" (vinave-change-fn (kbd "dw")))
+                     ("ce" (vinave-change-fn (kbd "dw")))
                      ("cb" (vinave-change-fn (kbd "db")))
                      ("c." (vinave-change-fn (kbd "d.")))
                      ("c," (vinave-change-fn (kbd "d,")))
@@ -152,7 +153,7 @@
                             (execute-kbd-macro "i")))
                      
                      ("y" (make-sparse-keymap))
-                     ("yw" (vinave-change-fn (kbd "dw") (kbd "p")))
+                     ("ye" (vinave-change-fn (kbd "dw") (kbd "p")))
                      ("yb" (vinave-change-fn (kbd "db") (kbd "p")))
                      ("y." (vinave-change-fn (kbd "d.") (kbd "p")))
                      ("y," (vinave-change-fn (kbd "d,") (kbd "p")))
