@@ -86,7 +86,7 @@
                      
                      ("e" "\M-f")
                      ("b" "\M-b")
-                     ("," "\C-a")
+                     ("," "\M-m")
                      ("." "\C-e")
                      ("<" (kbd "C-M-a"))
                      (">" (kbd "C-M-e"))
@@ -132,7 +132,7 @@
                      ("D" 'kill-region)
                      
                      ("c" (make-sparse-keymap))
-                     ("ce" (vinave-change-fn (kbd "dw")))
+                     ("ce" (vinave-change-fn (kbd "de")))
                      ("cb" (vinave-change-fn (kbd "db")))
                      ("c." (vinave-change-fn (kbd "d.")))
                      ("c," (vinave-change-fn (kbd "d,")))
@@ -153,7 +153,7 @@
                             (execute-kbd-macro "i")))
                      
                      ("y" (make-sparse-keymap))
-                     ("ye" (vinave-change-fn (kbd "dw") (kbd "p")))
+                     ("ye" (vinave-change-fn (kbd "de") (kbd "p")))
                      ("yb" (vinave-change-fn (kbd "db") (kbd "p")))
                      ("y." (vinave-change-fn (kbd "d.") (kbd "p")))
                      ("y," (vinave-change-fn (kbd "d,") (kbd "p")))
